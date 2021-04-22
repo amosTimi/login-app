@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
           fontSize: 14.0,
           color: Colors.white,
         ),
-        textAlign: TextAlign.justify,
+        textAlign: TextAlign.center,
       ),
     );
 

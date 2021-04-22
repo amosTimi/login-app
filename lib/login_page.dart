@@ -14,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
     final logo = Hero(
       tag: 'hero',
       child: Padding(
-        padding: const EdgeInsets.only(top: 10.0),
+        padding: const EdgeInsets.only(top: 40.0),
         child: CircleAvatar(
           backgroundColor: Colors.transparent,
           radius: 48.0,
@@ -50,11 +50,16 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final loginButton = ElevatedButton(
-      style: TextButton.styleFrom(
-        backgroundColor: Colors.lightBlueAccent,
+      style: ElevatedButton.styleFrom(
+        primary: Colors.blueAccent,
         elevation: 5.0,
+        shape: RoundedRectangleBorder( //to set border radius to button
+            borderRadius: BorderRadius.circular(30)
+        ),
       ),
-      onPressed: (){},
+      onPressed: (){
+        Navigator.of(context).pushNamed(HomePage.tag);
+      },
       child: Text('Login',
       style: TextStyle(
         fontSize: 18.0,
@@ -64,9 +69,7 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final forgotLabel = TextButton(
-      onPressed: (){
-        Navigator.of(context).pushNamed(HomePage.tag);
-      },
+      onPressed: (){},
       child: Text('Forgot password?',
         style: TextStyle(
           fontSize: 12.0,
@@ -83,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               logo,
-              SizedBox(height: 48.0),
+              SizedBox(height: 32.0),
               email,
               SizedBox(height: 8.0),
               password,
