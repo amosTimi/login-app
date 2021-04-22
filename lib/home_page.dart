@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'ninja_status.dart';
 
 class HomePage extends StatelessWidget {
   static String tag = 'home-page';
+
+  final routes = <String, WidgetBuilder>{
+    NinjaCard.tag: (context) => NinjaCard(),
+  };
+
   @override
   Widget build(BuildContext context) {
     final ucard = Hero(
@@ -43,6 +49,24 @@ class HomePage extends StatelessWidget {
       ),
     );
 
+    final ninjastatus = TextButton(
+      style: TextButton.styleFrom(
+        backgroundColor: Colors.blue[500],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(48.0),
+        ),
+      ),
+      onPressed: (){
+        Navigator.of(context).pushNamed(NinjaCard.tag);
+      },
+      child: Text('See Ninja Status',
+      style: TextStyle(
+        fontSize: 16.0,
+        letterSpacing: 2.0,
+        color: Colors.grey[200],
+      ),),
+    );
+
     final body = Container(
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(28.0),
@@ -54,7 +78,7 @@ class HomePage extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          ucard, welcome, description,
+          ucard, welcome, description, ninjastatus,
         ],
       ),
     );
